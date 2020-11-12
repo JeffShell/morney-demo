@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav">
     app
     <hr/>
     <router-view/>
@@ -19,6 +19,8 @@ name: "Nav"
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .nav {
+    border: 1px solid red;
+  }
 </style>
