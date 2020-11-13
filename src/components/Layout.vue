@@ -11,7 +11,6 @@
 
 <style scoped>
 .nav-wrapper {
-  border: 1px solid deepskyblue;
   display: flex;
   flex-direction: column;
   height: 100vh
