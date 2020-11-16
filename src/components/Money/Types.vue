@@ -48,4 +48,3 @@ export default class Types extends Vue{
     }
   }
 </style>
-<!-- @Component 与 vue-property-decorator -->
