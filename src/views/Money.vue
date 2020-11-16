@@ -1,29 +1,32 @@
 <template>
-      <Layout class-prefi="layout">
-        <Tags/>
-        <Notes/>
-        <Types :xxx="123"/>
-        <NumberPad/>
-      </Layout>
+  <Layout class-prefix="layout">
+    <NumberPad/>
+    <Types/>
+    <Notes/>
+    <Tags :data-source="tags"/>
+  </Layout>
 </template>
 
-<script lang="ts">
-import NumberPad from '@/components/Money/NumberPad.vue'
-import Types from '@/components/Money/Types.vue'
-import Notes from '@/components/Money/Notes.vue'
-import Tags from '@/components/Money/Tags.vue'
+<script lang="js">
+import NumberPad from '@/components/Money/NumberPad.vue';
+import Types from '@/components/Money/Types.vue';
+import Notes from '@/components/Money/Notes.vue';
+import Tags from '@/components/Money/Tags.vue';
 
 export default {
-  name: "Money",
+  name: 'Money',
   components: {Tags, Notes, Types, NumberPad},
+  data(){
+    return{
+      tags:['衣','食','住','行','彩票']
+    }
+  }
 }
 </script>
+
 <style lang="scss">
   .layout-content {
     display: flex;
     flex-direction: column-reverse;
   }
 </style>
-
-<!--surround 可以使用element工具-->
-<!--Fonts.css-->

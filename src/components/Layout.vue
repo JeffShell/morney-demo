@@ -1,19 +1,24 @@
 <template>
-  <div class="nav-wrapper">
-    <div class="content">
+  <div :class="classPrefix && `${classPrefix}-wrapper`">
+    <div class="content" :class="classPrefix && `${classPrefix}-content`   ">
       <slot/>
     </div>
     <Nav/>
   </div>
 </template>
 
+<script lang="ts">
+export default {
+  props: ['classPrefix'],
+  name: 'Layout'
+};
+</script>
 
-
-<style scoped>
-.nav-wrapper {
+<style lang="scss" scoped>
+.layout-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh
+  height: 100vh;
 }
 .content {
   overflow: auto;
