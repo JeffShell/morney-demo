@@ -6,7 +6,7 @@
       <span class="rightIcon"></span>
     </div>
     <div class="form-wrapper">
-      <FormItem :value="tag.name"
+      <FormItem :value="currentTag.name"
                 @update:value="update"
                 field-name="标签名" placeholder="请输入标签名"/>
     </div>
@@ -25,28 +25,30 @@ import Button from '@/components/Button.vue';
   components: {Button, FormItem}
 })
 export default class EditLabel extends Vue {
-  tag?: Tag = undefined;
+  get currentTag(){
+    return this.$store.state.currentTag;
+  }
   created() {
-    this.tag = window.findTag(this.$route.params.id);
-    if (!this.tag) {
-      this.$router.replace('/404');
+    const id = this.$route.params.id;
+    this.$store.commit('fetchTags');
+    this.$store.commit('setCurrentTag', id);
+    if(!this.currentTag) {
+      this.$router.replace('/404')
     }
   }
   update(name: string) {
-    if (this.tag) {
-      window.updateTag(this.tag.id, name);
+    if (this.currentTag) {
+      this.$store.commit('updateTag',{
+        id: this.currentTag.id, name
+      });
     }
   }
   remove() {
-    if (this.tag) {
-      if (window.removeTag(this.tag.id)) {
-        this.$router.back();
-      } else {
-        window.alert('删除失败');
-      }
+    if (this.currentTag) {
+        this.$store.commit('removeTag',this.currentTag.id);
     }
   }
-  goBack() {
+  goBack(){
     this.$router.back();
   }
 }
