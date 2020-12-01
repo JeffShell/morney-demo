@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout class="x">
     <div class="tags">
       <router-link class="tag"
                    v-for="tag in tags" :key="tag.id"
@@ -9,7 +9,7 @@
       </router-link>
     </div>
     <div class="createTag-wrapper">
-      <Button class="createTag" @click="createTag">新建标签</Button>
+      <Button class="createTag" @click="createTag">+</Button>
     </div>
   </Layout>
 </template>
@@ -39,6 +39,8 @@ export default class Labels extends mixins(TagHelper){
   background: white;
   font-size: 16px;
   padding-left: 16px;
+  height: 94vh;
+  overflow: auto;
   > .tag {
     min-height: 44px;
     display: flex;
@@ -53,17 +55,19 @@ export default class Labels extends mixins(TagHelper){
     }
   }
 }
+.x {
+  position: relative;
+}
 .createTag {
-  background: #767676;
-  color: white;
-  border-radius: 4px;
-  border: none;
-  height: 40px;
-  padding: 0 16px;
   &-wrapper {
-    text-align: center;
-    padding: 16px;
-    margin-top: 44-16px;
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+  }
+  &::v-deep.button {
+    background-color: #333;
+    border-radius: 50%;
   }
 }
+
 </style>

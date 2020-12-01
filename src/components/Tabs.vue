@@ -35,26 +35,23 @@
   }
 </script>
 <style lang="scss" scoped>
-.tabs {
-  background: #C4C4C4;
+.tabs{
+  //border: 1px solid red;
   display: flex;
-  text-align: center;
-  font-size: 24px;
+  justify-content: center;
   &-item {
-    width: 50%;
-    height: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    &.selected::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: #333;
+    border: 1px solid #000;
+    margin: 15px 0;
+    padding: 5px 50px;
+    &:first-child{
+      border-radius: 15px 0 0 15px;
+    }
+    &:last-child{
+      border-radius: 0 15px 15px 0;
+    }
+    &.selected{
+      background: #000;
+      color: #fff;
     }
   }
 }

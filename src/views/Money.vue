@@ -1,5 +1,6 @@
 <template>
   <Layout class-prefix="layout">
+
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
     <div class="notes">
       <FormItem field-name="备注"
@@ -22,7 +23,7 @@ import Tabs from '@/components/Tabs.vue';
 import recordTypeList from '@/constants/recordTypeList';
 
 @Component({
-  components: {Tabs, Tags, FormItem, NumberPad}
+  components: {Tabs, Tags, NumberPad}
 })
 export default class Money extends Vue {
   get recordList() {
@@ -56,6 +57,7 @@ export default class Money extends Vue {
   display: flex;
   flex-direction: column-reverse;
 }
+
 .notes {
   padding: 12px 0;
 }

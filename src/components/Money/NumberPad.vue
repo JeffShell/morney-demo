@@ -1,6 +1,7 @@
 <template>
 <div class="numberPad">
   <div class="output">{{ output}}</div>
+
   <div class="buttons">
     <button @click="inputContent">1</button>
     <button @click="inputContent">2</button>
@@ -77,17 +78,19 @@
   }
   .buttons {
     display: grid;
-    border-left: 1px solid #999999;
+    border-left: 1px solid #e1e1e1;
+    //background-color: #fff;
     grid-template-columns: repeat(4,25%);
     grid-template-rows: repeat(4,64px);
 
     > button {
-      border: 1px solid #767676;
+      border: 1px solid #e1e1e1;
+      background-color: #fff;
       margin-left: -1px;
       margin-top: -1px;
       &.ok {
         float: right;
-        background-color: #767676;
+        background-color: #343434;
         color: white;
         grid-row: 3 / 5;
         grid-column: 4 / 5;

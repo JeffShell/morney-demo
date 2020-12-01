@@ -8,7 +8,7 @@
           <li v-for="item in group.items" :key="item.id" class="record">
             <span>{{ tagString(item.tags) }}</span>
             <span class="notes">{{ item.notes }}</span>
-            <span>￥{{ item.amount }}</span>
+            <span>+{{ item.amount }}</span>
           </li>
         </ol>
       </li>
@@ -94,16 +94,15 @@ export default class Statistics extends Vue {
 
 <style scoped lang="scss">
 .noResult {
-  color: #5a5a5a;
+  color: #333333;
   padding: 16px;
   text-align: center;
 }
 ::v-deep {
   .type-tabs-item {
-    background: #c4c4c4;
 
     &.selected {
-      background: white;
+      background: #000;
 
       &::after {
         display: none;
