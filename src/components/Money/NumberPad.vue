@@ -1,6 +1,8 @@
 <template>
 <div class="numberPad">
-  <div class="output">{{ output}}</div>
+  <div class="output">
+    <span>金额：</span>{{ output}}
+  </div>
 
   <div class="buttons">
     <button @click="inputContent">1</button>
@@ -67,24 +69,28 @@
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
 .numberPad {
+  border-top: 1px solid #343434;
+  span {
+    font-family: $font-hei;
+    font-size: 16px;
+  }
   .output {
-    @extend %innerShadow;
-
-    width: 50%;
+    width: 100%;
     font-size: 18px;
     font-family: Consolas, monospace;
     padding: 9px 16px;
-    text-align: right;
+    text-align: left;
+    position: relative;
+    right: 0;
   }
   .buttons {
     display: grid;
-    border-left: 1px solid #e1e1e1;
-    //background-color: #fff;
+    border-left: 1px solid #343434;
     grid-template-columns: repeat(4,25%);
     grid-template-rows: repeat(4,64px);
 
     > button {
-      border: 1px solid #e1e1e1;
+      border: 1px solid #343434;
       background-color: #fff;
       margin-left: -1px;
       margin-top: -1px;

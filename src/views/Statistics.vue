@@ -2,13 +2,13 @@
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
     <ol v-if="groupedList.length>0">
-      <li v-for="(group,index) in groupedList" :key="index">
+      <li v-for="(group,index) in groupedList" :key="index" class="totalList">
         <h3 class="title">{{ beautify(group.title) }}<span>￥{{ group.total }}</span></h3>
         <ol>
           <li v-for="item in group.items" :key="item.id" class="record">
             <span>{{ tagString(item.tags) }}</span>
             <span class="notes">{{ item.notes }}</span>
-            <span>+{{ item.amount }}</span>
+            <span>{{ item.amount }}</span>
           </li>
         </ol>
       </li>
@@ -75,8 +75,6 @@ export default class Statistics extends Vue {
     }
     result.map(group => {
       group.total = group.items.reduce((sum, item) => {
-        // console.log(sum);
-        // console.log(item);
         return sum + item.amount;
       }, 0);
     });
@@ -100,17 +98,20 @@ export default class Statistics extends Vue {
 }
 ::v-deep {
   .type-tabs-item {
-
     &.selected {
       background: #000;
-
       &::after {
         display: none;
       }
     }
   }
 }
-
+.totalList {
+  background: #e1e1e1;
+  border: 1px solid #343434;
+  margin:0 10px 20px;
+  border-radius: 10px;
+}
 .interval-tabs-item {
   height: 48px;
 }
@@ -129,6 +130,7 @@ export default class Statistics extends Vue {
 
 .record {
   background: white;
+  border-radius: 10px;
   @extend %item;
 }
 

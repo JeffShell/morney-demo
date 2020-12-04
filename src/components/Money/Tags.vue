@@ -1,7 +1,9 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button @click="createTag">新增标签</button>
+      <button @click="createTag">
+        <Icon name="AddTags" />
+      </button>
     </div>
     <ul class="current">
       <li v-for="tag in tagList" :key="tag.id"
@@ -42,14 +44,15 @@ export default class Tags extends mixins(TagHelper) {
 <style lang="scss" scoped>
 .tags {
   font-size: 14px;
-  padding: 16px;
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
   > .current {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
-    max-height: 100px;
+    height: 130px;
     overflow: auto;
     > li {
       $bg:#d9d9d9;
@@ -57,7 +60,6 @@ export default class Tags extends mixins(TagHelper) {
       $h: 24px;
       height: $h;
       line-height: $h;
-      border-radius: $h/2;
       padding: 0 16px;
       margin-right: 12px;
       margin-top: 4px;
@@ -68,13 +70,14 @@ export default class Tags extends mixins(TagHelper) {
     }
   }
   > .new {
-    padding-top: 16px;
+    padding: 16px;
     button {
+      width: 50px;
+      height: 50px;
+      border: 1px dashed #343434;
       background: transparent;
-      border: none;
       color: #999;
-      border-bottom: 1px solid;
-      padding: 0 4px;
+      padding: 10px;
     }
   }
 }

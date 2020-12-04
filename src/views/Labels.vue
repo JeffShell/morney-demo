@@ -9,7 +9,9 @@
       </router-link>
     </div>
     <div class="createTag-wrapper">
-      <Button class="createTag" @click="createTag">+</Button>
+      <Button class="createTag" @click="createTag">
+        <Icon name="AddTags"/>
+      </Button>
     </div>
   </Layout>
 </template>
@@ -36,17 +38,21 @@ export default class Labels extends mixins(TagHelper){
 
 <style lang="scss" scoped>
 .tags {
-  background: white;
+  background: #e1e1e1;
   font-size: 16px;
-  padding-left: 16px;
-  height: 94vh;
+  padding: 16px;
+  height: 91vh;
   overflow: auto;
   > .tag {
+    background: #fff;
     min-height: 44px;
+    margin-bottom: 16px;
+    padding-left: 15px;
+    border:1px solid #343434;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e6e6e6;
     svg {
       width: 18px;
       height: 18px;
@@ -66,6 +72,7 @@ export default class Labels extends mixins(TagHelper){
   }
   &::v-deep.button {
     background-color: #333;
+    height: 48px;
     border-radius: 50%;
   }
 }

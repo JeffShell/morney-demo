@@ -8,7 +8,7 @@
     <div class="form-wrapper">
       <FormItem :value="currentTag.name"
                 @update:value="update"
-                field-name="标签名" placeholder="请输入标签名"/>
+                field-name="标签名：" placeholder="请输入标签名"/>
     </div>
     <div class="button-wrapper">
       <Button @click="remove">删除标签</Button>
@@ -64,6 +64,7 @@ export default class EditLabel extends Vue {
   align-items: center;
   justify-content: space-between;
   > .title {
+    //border: none;
   }
   > .leftIcon {
     width: 24px;
@@ -77,10 +78,30 @@ export default class EditLabel extends Vue {
 .form-wrapper {
   background: white;
   margin-top: 8px;
+  &::v-deep {
+    border: 1px solid #343434;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 80%;
+    height: 100px;
+    .name {
+    }
+    input {
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      //background-color: skyblue;
+    }
+  }
+
 }
 .button-wrapper {
   text-align: center;
   padding: 16px;
   margin-top: 44-16px;
+  ::v-deep .button {
+    border: 1px solid #343434;
+    color: #343434;
+  }
 }
 </style>
