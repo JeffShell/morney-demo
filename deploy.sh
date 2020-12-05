@@ -21,6 +21,6 @@ git branch -M main
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
- git push -f git@gitee.com:jeffshell/mccounting-items.git main:gh-pages
+ git push -f git@github.com:JeffShell/morney-demo-website.git main:gh-pages
 
 cd -

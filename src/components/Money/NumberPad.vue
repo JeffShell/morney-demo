@@ -68,42 +68,30 @@
 
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
+
 .numberPad {
   border-top: 1px solid #343434;
-  span {
-    font-family: $font-hei;
-    font-size: 16px;
-  }
   .output {
-    width: 100%;
-    font-size: 18px;
+    @extend %clearFix;
+    font-size: 36px;
     font-family: Consolas, monospace;
     padding: 9px 16px;
-    text-align: left;
-    position: relative;
-    right: 0;
+    text-align: right;
   }
   .buttons {
-    display: grid;
-    border-left: 1px solid #343434;
-    grid-template-columns: repeat(4,25%);
-    grid-template-rows: repeat(4,64px);
-
+    @extend %clearFix;
     > button {
+      width: 25%;
+      height: 64px;
+      float: left;
+      background: transparent;
       border: 1px solid #343434;
-      background-color: #fff;
-      margin-left: -1px;
-      margin-top: -1px;
       &.ok {
+        height: 64*2px;
         float: right;
-        background-color: #343434;
-        color: white;
-        grid-row: 3 / 5;
-        grid-column: 4 / 5;
       }
       &.zero {
-        grid-row: 4 / 5;
-        grid-column: 1 / 3;
+        width: 25*2%;
       }
     }
   }
